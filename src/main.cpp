@@ -1,23 +1,15 @@
 #include <wx/wx.h>
+#include "ui/MainFrame.hpp"
 
-class MyApp : public wxApp
+class App : public wxApp
 {
 public:
-    virtual bool OnInit();
+    bool OnInit() override
+    {
+        auto *frame = new MainFrame();
+        frame->Show();
+        return true;
+    }
 };
 
-class MyFrame : public wxFrame
-{
-public:
-    MyFrame()
-        : wxFrame(nullptr, wxID_ANY, "Hello wxWidgets") {}
-};
-
-wxIMPLEMENT_APP(MyApp);
-
-bool MyApp::OnInit()
-{
-    MyFrame *frame = new MyFrame();
-    frame->Show(true);
-    return true;
-}
+wxIMPLEMENT_APP(App);
