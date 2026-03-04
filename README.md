@@ -71,7 +71,7 @@ cd C:\cpp-lib-wxwidgets\build\msw
 Build wxWidgets in 64-bit Release mode with shared libraries:
 
 ```bash
-Build wxWidgets in 64-bit Release mode with shared libraries:
+nmake -f makefile.vc BUILD=release SHARED=1
 ```
 
 After compilation, the generated libraries will appear in:

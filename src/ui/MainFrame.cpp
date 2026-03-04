@@ -1,8 +1,8 @@
-#include "MainFrame.hpp"
+﻿#include "MainFrame.hpp"
 #include "../core/Huffman.hpp"
 
 MainFrame::MainFrame()
-    : wxFrame(nullptr, wxID_ANY, "PROGRAMA DE CODIFICACIÓN DE HUFFMAN", wxDefaultPosition, wxSize(800, 600))
+    : wxFrame(nullptr, wxID_ANY, L"PROGRAMA DE CODIFICACIÓN DE HUFFMAN", wxDefaultPosition, wxSize(800, 600))
 {
 
     scrolledWindow_ = new wxScrolledWindow(this);
@@ -17,22 +17,22 @@ MainFrame::MainFrame()
         wxDefaultPosition,
         wxSize(-1, 100),
         wxTE_MULTILINE | wxTE_WORDWRAP);
-    auto *button = new wxButton(scrolledWindow_, wxID_ANY, "Codificar",
+    auto *button = new wxButton(scrolledWindow_, wxID_ANY, L"Codificar",
                                 wxDefaultPosition, wxSize(120, 40));
 
     freqTable_ = new wxListCtrl(scrolledWindow_, wxID_ANY,
                                 wxDefaultPosition, wxSize(220, 200),
                                 wxLC_REPORT | wxLC_SINGLE_SEL);
 
-    freqTable_->InsertColumn(0, "Símbolo", wxLIST_FORMAT_CENTER, 60);
-    freqTable_->InsertColumn(1, "Frecuencia", wxLIST_FORMAT_CENTER, 120);
+    freqTable_->InsertColumn(0, L"Símbolo", wxLIST_FORMAT_CENTER, 60);
+    freqTable_->InsertColumn(1, L"Frecuencia", wxLIST_FORMAT_CENTER, 120);
 
     codesTable_ = new wxListCtrl(scrolledWindow_, wxID_ANY,
                                  wxDefaultPosition, wxSize(220, 200),
                                  wxLC_REPORT | wxLC_SINGLE_SEL);
 
-    codesTable_->InsertColumn(0, "Símbolo", wxLIST_FORMAT_CENTER, 60);
-    codesTable_->InsertColumn(1, "Símbolo Codificado", wxLIST_FORMAT_CENTER, 140);
+    codesTable_->InsertColumn(0, L"Símbolo", wxLIST_FORMAT_CENTER, 60);
+    codesTable_->InsertColumn(1, L"Símbolo Codificado", wxLIST_FORMAT_CENTER, 140);
 
     encodedOutput_ = new wxTextCtrl(
         scrolledWindow_,
@@ -47,11 +47,11 @@ MainFrame::MainFrame()
 
     sizer->Add(inputCtrl_, 0, wxEXPAND | wxALL, 5);
     sizer->Add(button, 0, wxALIGN_LEFT | wxALL, 5);
-    sizer->Add(new wxStaticText(scrolledWindow_, wxID_ANY, "Tabla de Frecuancias"), 0, wxLEFT, 5);
+    sizer->Add(new wxStaticText(scrolledWindow_, wxID_ANY, L"Tabla de Frecuencias"), 0, wxLEFT, 5);
     sizer->Add(freqTable_, 0, wxEXPAND | wxALL, 5);
-    sizer->Add(new wxStaticText(scrolledWindow_, wxID_ANY, "Símbolos Codificados"), 0, wxLEFT, 5);
+    sizer->Add(new wxStaticText(scrolledWindow_, wxID_ANY, L"Símbolos Codificados"), 0, wxLEFT, 5);
     sizer->Add(codesTable_, 0, wxEXPAND | wxALL, 5);
-    sizer->Add(new wxStaticText(scrolledWindow_, wxID_ANY, "Cadena Codificada"), 0, wxLEFT, 5);
+    sizer->Add(new wxStaticText(scrolledWindow_, wxID_ANY, L"Cadena Codificada"), 0, wxLEFT, 5);
     sizer->Add(encodedOutput_, 0, wxEXPAND | wxALL, 5);
     sizer->Add(treePanel_, 1, wxEXPAND | wxALL, 5);
 
