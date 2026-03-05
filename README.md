@@ -128,7 +128,7 @@ For Visual Studio Code IntelliSense support, configure .vscode/c_cpp_properties.
                 "C:/cpp-lib-wxwidgets/lib/vc_x64_dll/mswu"
             ],
             "defines": [
-                "_DEBUG",
+                "NDEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
