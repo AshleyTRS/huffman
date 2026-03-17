@@ -50,7 +50,7 @@ MainFrame::MainFrame()
         wxSize(-1, 100),
         wxTE_MULTILINE | wxTE_READONLY | wxTE_WORDWRAP);
 
-    //  treePanel_ = new TreePanel(scrolledWindow_);
+    treePanel_ = new TreePanel(scrolledWindow_);
     treePanel_->SetMinSize(wxSize(2000, 1200));
 
     sizer->Add(inputCtrl_, 0, wxEXPAND | wxALL, 5);
