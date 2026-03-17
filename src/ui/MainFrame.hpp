@@ -17,4 +17,5 @@ private:
     wxScrolledWindow *scrolledWindow_;
     TreePanel *treePanel_;
     wxTextCtrl *encodedOutput_;
+    wxTextCtrl *decodedOutput_;
 };

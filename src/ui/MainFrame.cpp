@@ -42,7 +42,15 @@ MainFrame::MainFrame()
         wxSize(-1, 100),
         wxTE_MULTILINE | wxTE_READONLY | wxTE_WORDWRAP);
 
-    treePanel_ = new TreePanel(scrolledWindow_);
+    decodedOutput_ = new wxTextCtrl(
+        scrolledWindow_,
+        wxID_ANY,
+        "",
+        wxDefaultPosition,
+        wxSize(-1, 100),
+        wxTE_MULTILINE | wxTE_READONLY | wxTE_WORDWRAP);
+
+    //  treePanel_ = new TreePanel(scrolledWindow_);
     treePanel_->SetMinSize(wxSize(2000, 1200));
 
     sizer->Add(inputCtrl_, 0, wxEXPAND | wxALL, 5);
@@ -53,6 +61,8 @@ MainFrame::MainFrame()
     sizer->Add(codesTable_, 0, wxEXPAND | wxALL, 5);
     sizer->Add(new wxStaticText(scrolledWindow_, wxID_ANY, L"Cadena Codificada"), 0, wxLEFT, 5);
     sizer->Add(encodedOutput_, 0, wxEXPAND | wxALL, 5);
+    sizer->Add(new wxStaticText(scrolledWindow_, wxID_ANY, L"Cadena Descodificada"), 0, wxLEFT, 5);
+    sizer->Add(decodedOutput_, 0, wxEXPAND | wxALL, 5);
     sizer->Add(treePanel_, 1, wxEXPAND | wxALL, 5);
 
     scrolledWindow_->SetSizer(sizer);
@@ -87,6 +97,9 @@ void MainFrame::OnEncode(wxCommandEvent &)
 
     std::string encoded = h.encode();
     encodedOutput_->SetValue(encoded);
+
+    std::string decoded = h.decode(encoded);
+    decodedOutput_->SetValue(decoded);
 
     treePanel_->SetTree(h.root());
 }
